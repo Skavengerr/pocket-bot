@@ -1,4 +1,4 @@
-package repository
+package storage
 
 type Bucket string
 
@@ -7,7 +7,7 @@ const (
 	RequestTokens Bucket = "request_tokens"
 )
 
-type TokenRepository interface {
-	Save(ChatID int64, token string, bucket Bucket) error
+type TokenStorage interface {
+	Save(chatID int64, token string, bucket Bucket) error
 	Get(chatID int64, bucket Bucket) (string, error)
 }

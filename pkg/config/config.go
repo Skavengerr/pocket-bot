@@ -1,28 +1,23 @@
 package config
 
-import (
-	"fmt"
-
-	"github.com/spf13/viper"
-)
+import "github.com/spf13/viper"
 
 type Messages struct {
-	Errors
 	Responses
-}
-
-type Errors struct {
-	Default      string `mapstructure: "default"`
-	InvalidURL   string `mapstructure: "invalid_url"`
-	Unauthorized string `mapstructure: "unauthorized"`
-	UnableToSave string `mapstructure: "unable_to_save"`
+	Errors
 }
 
 type Responses struct {
-	Start             string `mapstructure: "start"`
-	AlreadyAuthorized string `mapstructure: "already_authorized"`
-	LinkSaved         string `mapstructure: "link_save"`
-	UnknownCommand    string `mapstructure: "unknown_command"`
+	Start             string `mapstructure:"start"`
+	AlreadyAuthorized string `mapstructure:"already_authorized"`
+	UnknownCommand    string `mapstructure:"unknown_command"`
+	LinkSaved         string `mapstructure:"link_saved"`
+}
+
+type Errors struct {
+	Default      string `mapstructure:"default"`
+	InvalidURL   string `mapstructure:"invalid_url"`
+	UnableToSave string `mapstructure:"unable_to_save"`
 }
 
 type Config struct {
@@ -30,8 +25,8 @@ type Config struct {
 	PocketConsumerKey string
 	AuthServerURL     string
 
-	TelegramBotURL string `mapstructure: "bot_url"`
-	DBPath         string `mapstructure: "db_file"`
+	BotURL     string `mapstructure:"bot_url"`
+	BoltDBFile string `mapstructure:"db_file"`
 
 	Messages Messages
 }
@@ -50,8 +45,6 @@ func Init() (*Config, error) {
 		return nil, err
 	}
 
-	fmt.Printf("CONFIG: %+v\n", cfg)
-
 	return &cfg, nil
 }
 
@@ -60,11 +53,11 @@ func unmarshal(cfg *Config) error {
 		return err
 	}
 
-	if err := viper.UnmarshalKey("messages.responses", &cfg.Messages.Responses); err != nil {
+	if err := viper.UnmarshalKey("messages.response", &cfg.Messages.Responses); err != nil {
 		return err
 	}
 
-	if err := viper.UnmarshalKey("messages.errors", &cfg.Messages.Errors); err != nil {
+	if err := viper.UnmarshalKey("messages.error", &cfg.Messages.Errors); err != nil {
 		return err
 	}
 

@@ -5,6 +5,7 @@ go 1.18
 require (
 	github.com/boltdb/bolt v1.3.1 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
+	github.com/go-telegram-bot-api/telegram-bot-api v4.6.4+incompatible // indirect
 	github.com/go-telegram-bot-api/telegram-bot-api/v5 v5.5.1 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/magiconair/properties v1.8.6 // indirect
@@ -18,7 +19,11 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/spf13/viper v1.12.0 // indirect
 	github.com/subosito/gotenv v1.3.0 // indirect
+	github.com/technoweenie/multipartstreamer v1.0.1 // indirect
 	github.com/zhashkevych/go-pocket-sdk v0.0.0-20201222091903-35b3b269a1e8 // indirect
+	go.uber.org/atomic v1.7.0 // indirect
+	go.uber.org/multierr v1.6.0 // indirect
+	go.uber.org/zap v1.21.0 // indirect
 	golang.org/x/sys v0.0.0-20220702020025-31831981b65f // indirect
 	golang.org/x/text v0.3.7 // indirect
 	gopkg.in/ini.v1 v1.66.4 // indirect
